@@ -1,6 +1,6 @@
 1. What is the difference between null and undefined?
 
-Ans: null is a value assigned by the developer and undefined is variable declared bu not assigned value.
+Ans: null is a value assigned by the developer and undefined is variable declared but not assigned value.
 
 2) What is the use of the map() function in JavaScript? How is it different from forEach()?
 
@@ -18,6 +18,6 @@ Ans: async make a function to return promise $ await pause the code until promis
 
 Ans:
 
-Global Scope: variable declared outside any function or block.
-Function Scope: 
-Block Scope:
+Global Scope: variable declared outside any function or block. Accessible from anywhere from the code
+Function Scope: variable declared inside any function. Accessible only inside the function.
+Block Scope: Variable only declared by let or const inside {} and accessible only from that block.
