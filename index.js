@@ -22,6 +22,14 @@ const loadProductByCategoryBtn = (category) => {
 
 }
 
+/* ==============load all product====================== */
+const allProductLoad = () => {
+    const url = "https://fakestoreapi.com/products"
+    fetch(url)
+    .then(res => res.json())
+    .then(data =>displayProducts(data))
+}
+
 const displayProducts = (products) => {
 
     const productArea = document.getElementById("products-are-product-page");
@@ -64,6 +72,15 @@ const loadCategory = (categories) => {
     const productButtonDiv = document.getElementById("product-category-buttons");
     productButtonDiv.innerHTML = "";
 
+    /* add All Product Button */
+
+    const allProductButton = document.createElement("div");
+    allProductButton.innerHTML = `
+    
+    <button onclick="allProductLoad()" class="border-[1px] border-gray-400/40 text-gray-600 p-2 px-5 font-medium rounded-full hover:bg-[#4f39f6] hover:text-white hover:cursor-pointer">All</button>
+    `
+    productButtonDiv.append(allProductButton);
+
     /* loop in each category */
     categories.forEach(category => {
 
@@ -71,7 +88,7 @@ const loadCategory = (categories) => {
         const categoryBtnDiv = document.createElement("div");
         categoryBtnDiv.innerHTML = `
 
-        <button onclick="loadProductByCategoryBtn('${category}')" class="border-[1px] border-gray-400/40 text-gray-600 p-2 px-3 font-medium rounded-full hover:bg-[#4f39f6] hover:text-white hover:cursor-pointer">${category}</button>
+        <button onclick="loadProductByCategoryBtn('${category.replace(/'/g, "\\'")}')" class="border-[1px] border-gray-400/40 text-gray-600 p-2 px-3 font-medium rounded-full hover:bg-[#4f39f6] hover:text-white hover:cursor-pointer">${category}</button>
         
         `
 
